@@ -79,7 +79,7 @@ The bowl-attach bottle won despite being pricier. The seal keeps water from leak
 
 **How do I know if my small dog is dehydrated?** Check the gums — they should be pink and slick, not sticky or pale. Pinch the skin behind the shoulders; if it doesn’t snap back instantly, your dog may be dehydrated. Other signs: excessive panting, lethargy, dry nose.
 
-**Why won’t my dog drink from a travel bottle?** Most small dogs find the narrow spout confusing or uncomfortable. The水流 may be too thin, or the bottle shape doesn’t let them lap naturally. Try tilting the bottle to create a wider pool, or switch to a bowl-style attachment.
+**Why won’t my dog drink from a travel bottle?** Most small dogs find the narrow spout confusing or uncomfortable. The water flow may be too thin, or the bottle shape doesn't let them lap naturally. Try tilting the bottle to create a wider pool, or switch to a bowl-style attachment.
 
 **How much water does a small dog need on a hot walk?** As a rule, offer 1-2 oz (30-60 ml) every 20-30 minutes in warm weather. An 8 lb corgi like ours typically drinks 4-6 oz per hour on a warm walk. Adjust based on pace, shade, and wind.
 

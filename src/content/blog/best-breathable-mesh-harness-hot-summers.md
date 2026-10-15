@@ -3,7 +3,7 @@ title: "Best Breathable Mesh Harness for Hot Summers — Tested on an 8 lb Corgi
 pubDate: "2026-08-17"
 category: "harness"
 image: "/images/blog/best-breathable-mesh-harness-hot-summers.jpg"
-description: "We put five mesh harnesses on Peanut during a 95°F week. Which ones kept him cool and which ones made him过热? Here's the infrared data."
+description: "We put five mesh harnesses on Peanut during a 95°F week. Which ones kept him cool and which ones made him overheat? Here's the infrared data."
 readTime: "5 min read"
 tests: ["Pull-force test", "Escape test"]
 ---

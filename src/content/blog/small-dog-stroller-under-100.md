@@ -99,7 +99,7 @@ Every stroller under $100 compromises somewhere. Here’s what we’d sacrifice 
 
 A sub-$100 stroller can be safe and functional if you pick the right one. Azaeahom 4-Wheel Pet Stroller at $72 checked every safety box and survived our month of daily use with no degradation. But you’re trading convenience — no one-handed fold, stiffer wheels, and a likely replacement within a year of daily use.
 
-If you only take your dog out a few times a week, Azaeahom 4-Wheel Pet Stroller is a solid choice. If you’re pushing it daily through rough terrain, save for our mid-range pick from last month. The $80 difference buys you a fold that works one-handed, wheels that last, and a brake that doesn’t need testing on a斜坡.
+If you only take your dog out a few times a week, Azaeahom 4-Wheel Pet Stroller is a solid choice. If you’re pushing it daily through rough terrain, save for our mid-range pick from last month. The $80 difference buys you a fold that works one-handed, wheels that last, and a brake that doesn't need testing on a slope.
 
 ## FAQ
 

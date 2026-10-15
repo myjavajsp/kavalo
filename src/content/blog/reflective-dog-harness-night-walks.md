@@ -1,5 +1,5 @@
 ---
-title: "PHOEPET No Pull Dog Harnessog Harness for Night Walks — Real Visibility Test"
+title: "PHOEPET No Pull Dog Harness for Night Walks — Real Visibility Test"
 pubDate: "2026-08-17"
 category: "harness"
 image: "/images/blog/reflective-dog-harness-night-walks.jpg"

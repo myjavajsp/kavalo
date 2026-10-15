@@ -40,7 +40,7 @@ We also watched for chafing after a 30-minute walk, especially under the armpits
 
 The Y-harness won by a wide margin. On Peanut, the Y-shape kept the chest strap firmly behind his front legs even during hard pulls. The leash attachment point meant every tug turned him slightly toward us instead of letting him drag forward.
 
-The H-harness chest strap rode up 2-3 inches during pulls, moving closer to Peanut’s throat. This is the single biggest issue — our harness-vs-collar测试 showed collar pressure spikes at 3× the force of a well-fitted harness. An H-harness that rides up effectively becomes a collar.
+The H-harness chest strap rode up 2-3 inches during pulls, moving closer to Peanut’s throat. This is the single biggest issue — our harness-vs-collar test showed collar pressure spikes at 3× the force of a well-fitted harness. An H-harness that rides up effectively becomes a collar.
 
 Our dachshund was the edge case. Long-backed dogs can have the Y-junction sit too far forward if the harness isn’t sized for torso length. We solved it by choosing a model with adjustable front straps and sliding the Y point back behind the elbows.
 
