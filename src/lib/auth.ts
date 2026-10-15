@@ -6,6 +6,7 @@
  * Session token = base64url(payload) + '.' + HMAC-SHA256(payload, SESSION_SECRET)
  * with payload { iat, exp }. Tokens expire after 24h.
  */
+import 'dotenv/config';
 import crypto from 'node:crypto';
 import type { AstroCookies } from 'astro';
 

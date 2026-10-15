@@ -6,6 +6,7 @@
  * open a new pool on each reload. No connection is opened at import time, so the
  * build step never touches the database.
  */
+import 'dotenv/config';
 import mysql from 'mysql2/promise';
 
 /** Shape of a raw row from the `articles` table. */

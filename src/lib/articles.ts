@@ -70,7 +70,7 @@ function toBool(value: unknown): boolean {
 /** Map a raw DB row to the public `ArticleEntry` shape. */
 function rowToEntry(row: ArticleRow): ArticleEntry {
   const data: ArticleData = {
-    id: BigInt(row.id),
+    id: Number(row.id),
     slug: row.slug,
     title: row.title,
     category: row.category,

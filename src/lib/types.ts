@@ -22,7 +22,7 @@ export interface ArticleInput {
 
 /** A fully-hydrated article as stored in / read from the database. */
 export interface ArticleData {
-  id: bigint;
+  id: number;
   slug: string;
   title: string;
   category: string;

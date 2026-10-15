@@ -101,3 +101,31 @@
 
 - 测试脚本：`E:/kavalo.top/kavalo-astro/scripts/qa-check.ts`（运行：`node_modules/.bin/tsx scripts/qa-check.ts`）
 - 本报告：`E:/kavalo.top/kavalo-astro/docs/qa-report.md`
+
+---
+
+## 8. 2026-10-15 真实 MySQL 端到端复查
+
+环境：本机 **MySQL 8.0.28 @ 127.0.0.1:3306（root 空密码）**，已具备；dev server @4321。
+此前因无 MySQL 而标注「不可测」的项，至此**全部实测通过**，并修复 3 个运行期缺陷：
+
+### 8.1 修复记录
+1. **`migrate.ts` 建库失败**：原实现复用 `db.ts` 带 `database:'kavalo'` 的连接池，连接时即选库失败（`Unknown database 'kavalo'`），`CREATE DATABASE` 没机会执行。改为自建**无默认库**连接 → `CREATE DATABASE` + `USE` + `CREATE TABLE` 成功。
+2. **`.env` 未注入运行时**：`astro dev`/SSR 下 Vite 不会把 `.env` 非前缀变量放入 `process.env`（DB/auth 因默认值恰好能连而被掩盖）。在 `src/lib/db.ts`、`src/lib/auth.ts` 顶部加 `import 'dotenv/config'`，登录与连接恢复。Docker 注入的环境变量不受影响（dotenv 不覆盖已有 env）。
+3. **BigInt 导致 API 500**：`rowToEntry` 用 `BigInt(id)`，API 路由 `JSON.stringify` 返回时抛 `TypeError`。改为 `Number(id)`（类型 `ArticleData.id` 同步改 `number`），CRUD API 全部正常。
+
+### 8.2 实测结果
+- `npm run migrate` + `npm run seed`：建库建表成功；25 篇幂等播种；`tests` JSON 正确、`published=1`、`read_time` 在。
+- 前台（均由 MySQL 驱动）：`/`、`/blog`、`/blog/[slug]`、`/blog/category/[cat]`、`/corgi/gear`、`/rss.xml`、`/sitemap.xml`（37 个 `<loc>`）全部 HTTP 200。
+- 鉴权：`POST /api/login` 错密码 401 / 对密码 200 + `Set-Cookie auth_token`；无 cookie 访问 `/api/articles` → 401；`/admin/posts` 无 cookie → 302→`/admin/login`，有 cookie → 200。
+- CRUD API：列表 GET 200、`POST /api/articles` 创建 201、`DELETE /api/articles/[slug]` 200；清理后 `articles` 仍为 25 行。
+
+### 8.3 §11 验收点状态更新
+| 任务 | 验收点 | 状态 |
+|---|---|---|
+| T01 | `migrate` 建库建表（直连 MySQL 已验证；Docker 容器化仍无本机环境） | ✅（直连）/ ⚠️（容器未测） |
+| T03 | `/admin/*` 302 守卫、登出清 cookie、409/400、PUT/DELETE | ✅ 全部实测通过 |
+| T04 | 前台渲染 / TOC / 404 / RSS / sitemap | ✅ 全部实测通过 |
+| T05 | 后台增改删、seed 幂等、列表筛选分页 | ✅ 全部实测通过 |
+
+> 第 5 节「已知问题 #1 数据库集成全链路未实测」现已闭环。仅剩「Docker 容器部署」因本机无 Docker 仍未能实测（建议按 `deploy.sh` 在 VPS 上跑一次）。
