@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { CATEGORIES } from '../../site';
+import { listAll } from '../../lib/articles';
+
+// Same ordering as the old content-collection fetch: sort by slug, then group
+// by category in JS (no getCollection any more).
+const posts = (await listAll(false)).sort((a, b) =>
+  a.slug.localeCompare(b.slug)
+);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+const readLabel = (rt?: string) => {
+  const n = rt ? parseInt(rt, 10) : NaN;
+  if (isNaN(n)) return 'Quick read';
+  if (n <= 3) return 'Quick read';
+  if (n <= 7) return 'Medium read';
+  return 'Long read';
+};
+
+const breedNotes = [
+  {
+    strong: 'Long back, short legs',
+    text: 'A 13-inch back length means standard harness and carrier sizing charts often fall short. Measure from neck to tail base, not weight.',
+  },
+  {
+    strong: 'Pullers run hot',
+    text: "Corgis are herding dogs. Forward drive is built in. A front-clip or Y-harness isn't optional — it's the difference between a walk and a tug-of-war.",
+  },
+  {
+    strong: 'Stair anxiety',
+    text: 'Short legs make stairs a negotiation. Strollers with low entry ramps work better than high-sided carriers for corgis who hesitate at steps.',
+  },
+  {
+    strong: 'Double coat, overheats fast',
+    text: "Mesh ventilation isn't a luxury — it's a safety requirement. Small mesh windows aren't enough; you need airflow on 3+ sides.",
+  },
+];
+
+const corgiTips = [
+  'Back length ≥ 13 in: Every carrier and backpack must accommodate this. If the spec says "fits dogs up to 12 in back," it won’t work.',
+  'Front-clip harness preferred: Y-harness designs distribute force away from the throat. H-harnesses can press on the trachea during sudden pulls.',
+  'Stroller basket: 18+ in internal length: Peanut needed 18 inches minimum. Anything less and his hind legs dangle — a disc disease risk.',
+  'Mesh on 3+ sides: Corgis overheat faster than short-haired breeds assume. Front-only mesh isn’t enough.',
+  'Low-entry stroller/carrier: High sides discourage corgis from entering. Look for ramps or open-front designs.',
+  'Metal tether clips, not plastic: A corgi’s forward drive generates more pull force than their weight suggests. Plastic clips snap.',
+];
+---
+
+<BaseLayout
+  title="Gear for corgis — kavalo"
+  description="Everything we've tested on Peanut, an 8 lb corgi with a 13-inch back. Harnesses, strollers, carriers — sized and tested for long backs and short legs."
+>
+  <nav class="crumbs">
+    <a href="/">Home</a><span>/</span>
+    <a href="/blog/">Journal</a><span>/</span>
+    Gear for corgis
+  </nav>
+  <div class="page">
+    <h1>Gear for corgis</h1>
+    <p class="lede">
+      Peanut is an 8 lb corgi with a 13-inch back, a puller’s temperament, and
+      strong opinions about transportation. Every piece of gear we test goes on
+      him first. This page gathers everything we’ve written that matters for
+      corgis and other long-backed small breeds.
+    </p>
+    <div class="rule"></div>
+
+    <section class="breed-notes">
+      <h2>What makes corgis different</h2>
+      <div class="notes-grid">
+        {
+          breedNotes.map((n) => (
+            <div class="note">
+              <strong>{n.strong}</strong>
+              <p>{n.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    {
+      CATEGORIES.map((c) => {
+        const items = posts.filter((p) => p.data.category === c.label);
+        if (items.length === 0) return null;
+        return (
+          <section class="cat-section">
+            <h2>
+              <a href={`/blog/category/${c.slug}/`}>{c.label}</a>
+            </h2>
+            <div class="article-list">
+              {items.map((p) => (
+                <a class="article-link" href={`/blog/${p.slug}/`}>
+                  <div class="article-meta">
+                    <span class="article-date">{fmt(p.data.pubDate)}</span>
+                    <span class="article-diff">{readLabel(p.data.readTime)}</span>
+                  </div>
+                  <h3>{p.data.title}</h3>
+                  <p>{p.data.description}</p>
+                </a>
+              ))}
+            </div>
+          </section>
+        );
+      })
+    }
+
+    <section class="corgi-tip">
+      <h2>The corgi-specific checklist</h2>
+      <ul>
+        {corgiTips.map((t) => <li>{t}</li>)}
+      </ul>
+    </section>
+  </div>
+</BaseLayout>

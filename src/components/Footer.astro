@@ -1,0 +1,23 @@
+---
+const year = new Date().getFullYear();
+const footerLinks = [
+  { label: 'All notes', href: '/blog/' },
+  { label: 'Backpack carriers', href: '/blog/category/backpack-carrier/' },
+  { label: 'Flight carriers', href: '/blog/category/carrier/' },
+  { label: 'Harnesses', href: '/blog/category/harness/' },
+  { label: 'Strollers', href: '/blog/category/stroller/' },
+  { label: 'Water bottles', href: '/blog/category/water-bottle/' },
+  { label: 'How we test', href: '/how-we-test/' },
+  { label: 'Affiliate disclosure', href: '/affiliate-disclosure/' },
+  { label: 'Privacy policy', href: '/privacy-policy/' },
+  { label: 'RSS', href: '/rss.xml' },
+];
+---
+<footer>
+  <div class="wrap">
+    <nav class="links">
+      {footerLinks.map((l) => <a href={l.href}>{l.label}</a>)}
+    </nav>
+    <div class="copy">© {year} kavalo.top · Outfitting small dogs</div>
+  </div>
+</footer>

@@ -1,0 +1,71 @@
+classDiagram
+    class ArticleInput {
+        +string slug
+        +string title
+        +string category
+        +string image
+        +string description
+        +string body
+        +string readTime
+        +string[] tests
+        +Date pubDate
+        +boolean published
+    }
+    class ArticleData {
+        +bigint id
+        +string slug
+        +string title
+        +string category
+        +string image
+        +string description
+        +string body
+        +string readTime
+        +string[] tests
+        +Date pubDate
+        +boolean published
+        +Date createdAt
+        +Date updatedAt
+    }
+    class ArticleEntry {
+        +string slug
+        +ArticleData data
+    }
+    class TocItem {
+        +number depth
+        +string slug
+        +string text
+    }
+    class RenderResult {
+        +string html
+        +TocItem[] toc
+    }
+    class Markdown {
+        +renderMarkdown(body: string): RenderResult
+    }
+    class Articles {
+        +getBySlug(slug, includeUnpublished): Promise~ArticleEntry|null~
+        +listByCategory(category, includeUnpublished): Promise~ArticleEntry[]~
+        +listAll(includeUnpublished): Promise~ArticleEntry[]~
+        +listLatest(limit): Promise~ArticleEntry[]~
+        +create(input: ArticleInput): Promise~ArticleEntry~
+        +update(slug, input): Promise~ArticleEntry~
+        +remove(slug): Promise~void~
+        +upsertFromMarkdown(md): Promise~void~
+        +categorySlugToLabel(slug): string|null
+    }
+    class Auth {
+        +verifyPassword(input: string): boolean
+        +signSession(): string
+        +verifySession(token: string): boolean
+        +setAuthCookie(cookies, token): void
+        +clearAuthCookie(cookies): void
+    }
+    class DbPool {
+        +pool: Pool
+        +query(sql, params): Promise~RowDataPacket[]~
+    }
+    Articles ..> DbPool : uses
+    Markdown ..> RenderResult : produces
+    Articles ..> ArticleEntry : returns
+    ArticleEntry *-- ArticleData
+    RenderResult *-- TocItem

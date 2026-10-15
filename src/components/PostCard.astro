@@ -1,0 +1,42 @@
+---
+// Type only changed from CollectionEntry<'blog'> to ArticleEntry — the
+// { slug, data } shape is identical, so the markup below is unchanged.
+import type { ArticleEntry } from '../lib/types';
+
+interface Props {
+  post: ArticleEntry;
+  variant?: 'list' | 'grid';
+}
+const { post, variant = 'list' } = Astro.props;
+const href = `/blog/${post.slug}/`;
+const date = post.data.pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+const { title, description, image } = post.data;
+---
+
+{
+  variant === 'grid' ? (
+    <a class="post" href={href}>
+      <div class="ph">
+        <img src={image} alt={title} loading="lazy" />
+      </div>
+      <span class="date">{date}</span>
+      <h3>{title}</h3>
+      <div class="desc">{description}</div>
+    </a>
+  ) : (
+    <a class="post" href={href}>
+      <div class="thumb">
+        <img src={image} alt={title} width="160" height="120" loading="lazy" />
+      </div>
+      <div class="body">
+        <span class="date">{date}</span>
+        <h2>{title}</h2>
+        <p>{description}</p>
+      </div>
+    </a>
+  )
+}

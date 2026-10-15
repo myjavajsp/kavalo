@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { CATEGORIES } from '../../site';
+---
+
+<BaseLayout title="Admin — Articles — kavalo">
+  <section class="page admin-posts">
+    <div class="admin-head">
+      <h1>Journal articles</h1>
+      <div class="admin-head-actions">
+        <a class="admin-btn" href="/admin/posts/new">+ New article</a>
+        <button class="admin-btn ghost" id="logoutBtn" type="button">Log out</button>
+      </div>
+    </div>
+
+    <div class="admin-toolbar">
+      <input id="search" type="search" placeholder="Search title or description…" />
+      <select id="category">
+        <option value="">All categories</option>
+        {CATEGORIES.map((c) => <option value={c.label}>{c.label}</option>)}
+      </select>
+      <select id="status">
+        <option value="published">Published</option>
+        <option value="draft">Drafts</option>
+        <option value="all">All</option>
+      </select>
+    </div>
+
+    <div id="list" class="admin-list">Loading…</div>
+
+    <div class="admin-pager" id="pager"></div>
+  </section>
+</BaseLayout>
+
+<style>
+  .admin-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .admin-head-actions { display: flex; gap: 10px; }
+  .admin-toolbar { display: flex; gap: 12px; margin: 24px 0; flex-wrap: wrap; }
+  .admin-toolbar input, .admin-toolbar select {
+    font-size: 14px; padding: 9px 11px; border: 1px solid var(--line);
+    border-radius: 2px; font-family: inherit; background: #fff; color: var(--ink);
+  }
+  .admin-toolbar input { flex: 1; min-width: 220px; }
+  .admin-list table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .admin-list th, .admin-list td { text-align: left; padding: 12px 10px; border-bottom: 1px solid var(--line); }
+  .admin-list th { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+  .admin-list a.title { color: var(--ink); text-decoration: none; font-weight: 600; }
+  .admin-list a.title:hover { color: var(--accent); }
+  .badge { font-size: 11px; padding: 2px 8px; border-radius: 2px; border: 1px solid var(--line); color: var(--muted); }
+  .badge.pub { color: var(--accent); border-color: var(--accent); }
+  .row-actions { display: flex; gap: 10px; }
+  .link-btn { background: none; border: none; color: var(--accent); cursor: pointer; font-size: 13px; padding: 0; font-family: inherit; }
+  .link-btn.danger { color: #c44; }
+  .empty { color: var(--muted); padding: 24px 0; }
+  .admin-pager { display: flex; gap: 12px; align-items: center; margin-top: 20px; }
+</style>
+
+<script>
+  type Entry = {
+    slug: string;
+    data: { title: string; category: string; published: boolean; pubDate: string };
+  };
+
+  const searchEl = document.getElementById('search') as HTMLInputElement;
+  const categoryEl = document.getElementById('category') as HTMLSelectElement;
+  const statusEl = document.getElementById('status') as HTMLSelectElement;
+  const listEl = document.getElementById('list') as HTMLDivElement;
+  const pagerEl = document.getElementById('pager') as HTMLDivElement;
+
+  let page = 1;
+  const pageSize = 20;
+
+  async function load(): Promise<void> {
+    const params = new URLSearchParams({
+      q: searchEl.value,
+      category: categoryEl.value,
+      status: statusEl.value,
+      page: String(page),
+      pageSize: String(pageSize),
+    });
+    listEl.textContent = 'Loading…';
+    try {
+      const res = await fetch(`/api/articles?${params.toString()}`);
+      if (!res.ok) {
+        if (res.status === 401) window.location.href = '/admin/login';
+        listEl.textContent = 'Failed to load.';
+        return;
+      }
+      const json = await res.json();
+      render(json.data.items as Entry[], json.data.total as number);
+    } catch {
+      listEl.textContent = 'Network error.';
+    }
+  }
+
+  function esc(s: string): string {
+    return s.replace(/[&<>"']/g, (c) =>
+      ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] as string),
+    );
+  }
+
+  function render(items: Entry[], total: number): void {
+    if (!items.length) {
+      listEl.innerHTML = '<p class="empty">No articles match these filters.</p>';
+      pagerEl.innerHTML = '';
+      return;
+    }
+    const rows = items
+      .map((p) => {
+        const badge = p.data.published
+          ? '<span class="badge pub">published</span>'
+          : '<span class="badge">draft</span>';
+        return `<tr>
+          <td><a class="title" href="/admin/posts/${esc(p.slug)}">${esc(p.data.title)}</a></td>
+          <td>${esc(p.data.category)}</td>
+          <td>${badge}</td>
+          <td>${esc(new Date(p.data.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }))}</td>
+          <td class="row-actions">
+            <a class="link-btn" href="/admin/posts/${esc(p.slug)}">Edit</a>
+            <button class="link-btn danger" data-slug="${esc(p.slug)}">Delete</button>
+          </td>
+        </tr>`;
+      })
+      .join('');
+    listEl.innerHTML = `<table>
+      <thead><tr><th>Title</th><th>Category</th><th>Status</th><th>Date</th><th></th></tr></thead>
+      <tbody>${rows}</tbody></table>`;
+
+    listEl.querySelectorAll('button[data-slug]').forEach((b) => {
+      b.addEventListener('click', async () => {
+        const slug = (b as HTMLButtonElement).dataset.slug!;
+        if (!confirm(`Delete "${slug}"? This cannot be undone.`)) return;
+        const res = await fetch(`/api/articles/${encodeURIComponent(slug)}`, { method: 'DELETE' });
+        if (res.ok) load();
+        else alert('Delete failed.');
+      });
+    });
+
+    const totalPages = Math.max(1, Math.ceil(total / pageSize));
+    pagerEl.innerHTML = '';
+    const prev = document.createElement('button');
+    prev.className = 'admin-btn ghost';
+    prev.textContent = '← Prev';
+    prev.disabled = page <= 1;
+    prev.onclick = () => { page--; load(); };
+    const next = document.createElement('button');
+    next.className = 'admin-btn ghost';
+    next.textContent = 'Next →';
+    next.disabled = page >= totalPages;
+    next.onclick = () => { page++; load(); };
+    const info = document.createElement('span');
+    info.className = 'badge';
+    info.textContent = `Page ${page} / ${totalPages}`;
+    pagerEl.append(prev, info, next);
+  }
+
+  let debounce: number | undefined;
+  searchEl.addEventListener('input', () => {
+    window.clearTimeout(debounce);
+    debounce = window.setTimeout(() => { page = 1; load(); }, 300);
+  });
+  categoryEl.addEventListener('change', () => { page = 1; load(); });
+  statusEl.addEventListener('change', () => { page = 1; load(); });
+
+  document.getElementById('logoutBtn')?.addEventListener('click', async () => {
+    await fetch('/api/logout', { method: 'POST' });
+    window.location.href = '/admin/login';
+  });
+
+  load();
+</script>

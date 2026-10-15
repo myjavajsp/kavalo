@@ -1,0 +1,24 @@
+---
+import { NAV } from '../site';
+const path = Astro.url.pathname;
+const isJournal = path === '/blog/' || path.startsWith('/blog/category/');
+---
+<header>
+  <div class="wrap nav">
+    <a href="/" class="logo" aria-label="kavalo home">
+      <img src="/logo.svg" alt="kavalo" width="220" height="58" />
+    </a>
+    <nav class="nav-links">
+      {
+        NAV.map((item) => (
+          <a
+            href={item.href}
+            class={item.label === 'Journal' && isJournal ? 'on' : undefined}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>

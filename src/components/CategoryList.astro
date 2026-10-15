@@ -1,0 +1,17 @@
+---
+import { CATEGORIES } from '../site';
+const path = Astro.url.pathname;
+---
+<div class="cats">
+  <span class="label">Browse by gear</span>
+  {
+    CATEGORIES.map((c) => (
+      <a
+        href={`/blog/category/${c.slug}/`}
+        class={path === `/blog/category/${c.slug}/` ? 'cur' : undefined}
+      >
+        {c.label}
+      </a>
+    ))
+  }
+</div>

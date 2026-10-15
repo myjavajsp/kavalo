@@ -1,0 +1,51 @@
+---
+// SSR article page: read from MySQL by slug instead of getStaticPaths.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostLayout from '../../layouts/PostLayout.astro';
+import { getBySlug, listAll } from '../../lib/articles';
+import { renderMarkdown } from '../../lib/markdown';
+import type { ArticleEntry, TocItem } from '../../lib/types';
+
+const slug = Astro.params.slug ?? '';
+const article = slug ? await getBySlug(slug, false) : null;
+
+let html = '';
+let toc: TocItem[] = [];
+let related: ArticleEntry[] = [];
+
+if (article) {
+  const rendered = renderMarkdown(article.data.body);
+  html = rendered.html;
+  toc = rendered.toc;
+
+  // Related: same category first, then top up with others (preserve old logic).
+  const all = await listAll(false);
+  related = all
+    .filter((p) => p.slug !== article.slug && p.data.category === article.data.category)
+    .slice(0, 3);
+  if (related.length < 3) {
+    const extra = all
+      .filter((p) => p.slug !== article.slug && !related.some((r) => r.slug === p.slug))
+      .slice(0, 3 - related.length);
+    related = [...related, ...extra];
+  }
+} else {
+  Astro.response.status = 404;
+}
+---
+
+{
+  article ? (
+    <PostLayout article={article} html={html} toc={toc} related={related} />
+  ) : (
+    <BaseLayout title="Article not found">
+      <section class="page">
+        <h1>Article not found</h1>
+        <p>
+          The page you’re looking for doesn’t exist or isn’t published yet.
+        </p>
+        <a class="back" href="/blog/">← Back to journal</a>
+      </section>
+    </BaseLayout>
+  )
+}

@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Admin — kavalo">
+  <section class="page admin-login">
+    <h1>Admin sign in</h1>
+    <p class="lede">Enter the admin password to manage articles.</p>
+    <form id="loginForm" class="admin-form">
+      <label>
+        <span>Password</span>
+        <input
+          type="password"
+          name="password"
+          required
+          autocomplete="current-password"
+        />
+      </label>
+      <button type="submit" class="admin-btn">Sign in</button>
+      <p class="admin-error" id="err" hidden></p>
+    </form>
+  </section>
+</BaseLayout>
+
+<style>
+  .admin-login { max-width: 420px; }
+  .admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 28px;
+  }
+  .admin-form label { display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: var(--muted); }
+  .admin-form input {
+    font-size: 15px;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    font-family: inherit;
+  }
+  .admin-error { color: #c44; font-size: 13px; margin: 0; }
+</style>
+
+<script>
+  const form = document.getElementById('loginForm') as HTMLFormElement;
+  const err = document.getElementById('err') as HTMLParagraphElement;
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const password = (form.elements.namedItem('password') as HTMLInputElement).value;
+    err.hidden = true;
+    try {
+      const res = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password }),
+      });
+      if (res.ok) {
+        window.location.href = '/admin/posts';
+      } else {
+        err.textContent = 'Invalid password. Please try again.';
+        err.hidden = false;
+      }
+    } catch {
+      err.textContent = 'Network error. Is the server running?';
+      err.hidden = false;
+    }
+  });
+</script>

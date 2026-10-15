@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { CATEGORIES } from '../../../site';
+import { getBySlug } from '../../../lib/articles';
+
+const slugParam = Astro.params.slug ?? '';
+const isNew = slugParam === 'new';
+const existing = isNew ? null : await getBySlug(slugParam, true);
+
+if (!isNew && !existing) {
+  Astro.response.status = 404;
+}
+
+const data = existing?.data;
+const pubDateValue = data ? data.pubDate.toISOString().slice(0, 10) : '';
+const testsValue = data ? data.tests.join(', ') : '';
+---
+
+<BaseLayout title={isNew ? 'New article — kavalo' : 'Edit article — kavalo'}>
+  <section class="page admin-edit">
+    <a class="back" href="/admin/posts">← Back to articles</a>
+    <h1>{isNew ? 'New article' : 'Edit article'}</h1>
+
+    <form id="articleForm" class="admin-form">
+      <label>
+        <span>Title</span>
+        <input name="title" type="text" value={data?.title ?? ''} required />
+      </label>
+
+      <div class="grid-2">
+        <label>
+          <span>Category</span>
+          <select name="category" required>
+            {CATEGORIES.map((c) => (
+              <option value={c.label} selected={data?.category === c.label}>
+                {c.label}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label>
+          <span>Slug (URL)</span>
+          <input name="slug" type="text" value={data?.slug ?? ''} required />
+        </label>
+      </div>
+
+      <label>
+        <span>Cover image URL</span>
+        <input name="image" type="text" value={data?.image ?? ''} placeholder="/images/blog/…" />
+      </label>
+
+      <label>
+        <span>Description</span>
+        <textarea name="description" rows="2">{data?.description ?? ''}</textarea>
+      </label>
+
+      <div class="grid-2">
+        <label>
+          <span>Read time</span>
+          <input name="readTime" type="text" value={data?.readTime ?? ''} placeholder="5 min read" />
+        </label>
+        <label>
+          <span>Publish date</span>
+          <input name="pubDate" type="date" value={pubDateValue} />
+        </label>
+      </div>
+
+      <label>
+        <span>Tests (comma-separated tags)</span>
+        <input name="tests" type="text" value={testsValue} placeholder="Pull-force test, Escape test" />
+      </label>
+
+      <label class="checkbox">
+        <input name="published" type="checkbox" checked={data ? data.published : true} />
+        <span>Published</span>
+      </label>
+
+      <label>
+        <span>Body (Markdown)</span>
+        <textarea name="body" rows="20" class="mono">{data?.body ?? ''}</textarea>
+      </label>
+
+      <div class="form-actions">
+        <button type="submit" class="admin-btn" id="saveBtn">Save article</button>
+        <p class="admin-error" id="err" hidden></p>
+      </div>
+    </form>
+  </section>
+</BaseLayout>
+
+<style>
+  .admin-edit { max-width: 760px; }
+  .admin-form { display: flex; flex-direction: column; gap: 16px; margin-top: 20px; }
+  .admin-form label { display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: var(--muted); }
+  .admin-form input, .admin-form select, .admin-form textarea {
+    font-size: 15px; padding: 10px 12px; border: 1px solid var(--line);
+    border-radius: 2px; font-family: inherit; background: #fff; color: var(--ink);
+  }
+  .admin-form textarea { resize: vertical; }
+  .admin-form .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; line-height: 1.6; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 640px) { .grid-2 { grid-template-columns: 1fr; } }
+  .checkbox { flex-direction: row; align-items: center; gap: 8px; }
+  .checkbox input { width: auto; }
+  .form-actions { display: flex; align-items: center; gap: 16px; }
+  .admin-error { color: #c44; font-size: 13px; margin: 0; }
+</style>
+
+<script define:vars={{ isNew, originalSlug: data?.slug ?? '' }}>
+  const form = document.getElementById('articleForm') as HTMLFormElement;
+  const err = document.getElementById('err') as HTMLParagraphElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    err.hidden = true;
+    const fd = new FormData(form);
+    const payload = {
+      title: String(fd.get('title') ?? ''),
+      category: String(fd.get('category') ?? ''),
+      slug: String(fd.get('slug') ?? ''),
+      image: String(fd.get('image') ?? ''),
+      description: String(fd.get('description') ?? ''),
+      readTime: String(fd.get('readTime') ?? ''),
+      tests: String(fd.get('tests') ?? ''),
+      pubDate: String(fd.get('pubDate') ?? ''),
+      published: (fd.get('published') as string | null) !== null,
+      body: String(fd.get('body') ?? ''),
+    };
+
+    const url = isNew ? '/api/articles' : `/api/articles/${encodeURIComponent(originalSlug)}`;
+    const method = isNew ? 'POST' : 'PUT';
+
+    try {
+      const res = await fetch(url, {
+        method,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (res.ok) {
+        window.location.href = '/admin/posts';
+      } else {
+        const json = await res.json().catch(() => ({}));
+        err.textContent = json.message || `Save failed (${res.status}).`;
+        err.hidden = false;
+      }
+    } catch {
+      err.textContent = 'Network error. Is the server running?';
+      err.hidden = false;
+    }
+  });
+</script>

@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import CategoryList from '../components/CategoryList.astro';
+import { HERO, STORY, TRUST } from '../site';
+import { listAll } from '../lib/articles';
+
+const posts = (await listAll(false)).sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
+const latest = posts.slice(0, 9);
+---
+
+<BaseLayout>
+  <section class="hero">
+    <div class="text">
+      <h1>{HERO.title}</h1>
+      <p>{HERO.text}</p>
+      <div class="rule"></div>
+    </div>
+    <figure class="photo">
+      <picture>
+        <source srcset={HERO.image} type="image/webp" />
+        <img
+          src={HERO.imageFallback}
+          alt={HERO.imageAlt}
+          width="800"
+          height="798"
+          fetchpriority="high"
+        />
+      </picture>
+      <figcaption>{HERO.caption}</figcaption>
+    </figure>
+  </section>
+
+  <section class="trust-bar">
+    <div class="wrap">
+      <div class="trust-items">
+        {
+          TRUST.map((t, i) => (
+            <>
+              <span class="trust-item">
+                {t.strong && <strong>{t.strong}</strong>}
+                {t.text}
+              </span>
+              {i < TRUST.length - 1 && <span class="trust-dot">·</span>}
+            </>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="journal">
+    <CategoryList />
+    <div class="section-head">
+      <h2>Latest from the journal</h2>
+      <a class="all" href="/blog/">View all →</a>
+    </div>
+    <div class="grid">
+      {latest.map((p) => <PostCard post={p} variant="grid" />)}
+    </div>
+  </section>
+
+  <section class="story" id="about">
+    <div class="inner">
+      <h2>{STORY.title}</h2>
+      {STORY.paras.map((p) => <p>{p}</p>)}
+      <div class="sig">{STORY.sig}</div>
+    </div>
+    <figure class="photo">
+      <picture>
+        <source srcset={STORY.image} type="image/webp" />
+        <img src={STORY.imageFallback} alt={STORY.imageAlt} width="800" height="759" loading="lazy" />
+      </picture>
+      <figcaption>{STORY.caption}</figcaption>
+    </figure>
+  </section>
+</BaseLayout>

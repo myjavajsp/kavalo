@@ -1,0 +1,48 @@
+sequenceDiagram
+    participant U as Browser
+    participant P as blog/[slug].astro
+    participant A as articles.getBySlug
+    participant D as MySQL
+    participant M as markdown.renderMarkdown
+    participant L as PostLayout
+
+    U->>P: GET /blog/{slug}/
+    P->>A: getBySlug(slug, false)
+    A->>D: SELECT ... WHERE slug=? AND published=1
+    D-->>A: row|null
+    A-->>P: ArticleEntry|null
+    alt 未找到
+        P-->>U: 404
+    else 找到
+        P->>M: renderMarkdown(row.body)
+        M-->>P: {html, toc}
+        P->>L: <PostLayout article html toc/>
+        L-->>U: 文章 HTML（含 TOC 锚点）
+    end
+
+    Note over U,L: ---- 后台 CRUD（新建）链路 ----
+
+    participant Admin as Browser
+    participant MW as middleware.ts
+    participant API as POST /api/articles
+    participant Auth as auth.verifySession
+
+    Admin->>MW: POST /api/articles (cookie)
+    MW->>Auth: verifySession(token)
+    alt 无效
+        MW-->>Admin: 401 JSON
+    else 有效
+        MW->>API: 放行
+        API->>API: 校验 body（category∈6类, slug 非空）
+        API->>A: create(input)
+        A->>D: INSERT (uk_slug)
+        alt slug 冲突
+            D-->>A: ER_DUP_ENTRY
+            A-->>API: 抛 Conflict
+            API-->>Admin: 409 {message:"slug already exists"}
+        else 成功
+            D-->>A: insertId
+            A-->>API: ArticleEntry
+            API-->>Admin: 201 {ok:true, data}
+        end
+    end

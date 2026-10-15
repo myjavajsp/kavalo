@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PostCard from '../../../components/PostCard.astro';
+import CategoryList from '../../../components/CategoryList.astro';
+import { CATEGORIES } from '../../../site';
+import { categorySlugToLabel, listByCategory } from '../../../lib/articles';
+
+const slugParam = Astro.params.category ?? '';
+const label = categorySlugToLabel(slugParam);
+const category = CATEGORIES.find((c) => c.slug === slugParam) ?? null;
+
+const posts = label ? await listByCategory(label, false) : [];
+
+if (!label || !category) {
+  Astro.response.status = 404;
+}
+---
+
+{
+  label && category ? (
+    <BaseLayout
+      title={`${category.label} — kavalo`}
+      description={`Field notes on small dog ${category.label} — tested on our own dog, not copied from product pages.`}
+    >
+      <section class="head">
+        <h1>{category.label}</h1>
+        <p>Field notes on small dog {category.label} — tested on our own dog, not copied from product pages.</p>
+      </section>
+
+      <CategoryList />
+
+      <section class="list">
+        {posts.map((p) => <PostCard post={p} variant="list" />)}
+      </section>
+    </BaseLayout>
+  ) : (
+    <BaseLayout title="Category not found">
+      <section class="page">
+        <h1>Category not found</h1>
+        <p>We don’t cover that category yet.</p>
+        <a class="back" href="/blog/">← Back to journal</a>
+      </section>
+    </BaseLayout>
+  )
+}

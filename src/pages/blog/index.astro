@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import CategoryList from '../../components/CategoryList.astro';
+import { PROBLEMS } from '../../site';
+import { listAll } from '../../lib/articles';
+
+const posts = (await listAll(false)).sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
+---
+
+<BaseLayout title="Journal — kavalo" description="Field notes on small dog travel gear: backpacks, strollers, harnesses, water bottles — tested on our own dog first.">
+  <section class="head">
+    <h1>Journal</h1>
+    <p>Field notes on small dog travel gear. Everything here was tested on our own dog first.</p>
+  </section>
+
+  <section class="problems">
+    <div class="problems-label">Start with your problem</div>
+    <div class="grid">
+      {
+        PROBLEMS.map((pr) => (
+          <a class="problem-card" href={pr.href}>
+            <div class="problem-header">
+              <span class="problem-label">{pr.label}</span>
+              <span class="problem-arrow">→</span>
+            </div>
+            <h2>{pr.title}</h2>
+            <p>{pr.desc}</p>
+            <div class="problem-articles">
+              {pr.articles.map((a) => (
+                <span class="problem-article-tag">{a}</span>
+              ))}
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <CategoryList />
+
+  <section class="list">
+    {posts.map((p) => <PostCard post={p} variant="list" />)}
+  </section>
+</BaseLayout>

@@ -1,0 +1,107 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import AdSlot from '../components/AdSlot.astro';
+import type { ArticleEntry, TocItem } from '../lib/types';
+
+interface Props {
+  article: ArticleEntry;
+  html: string;
+  toc: TocItem[];
+  related?: ArticleEntry[];
+}
+const { article, html, toc, related = [] } = Astro.props;
+
+const date = article.data.pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+const title = article.data.title;
+const readTime = article.data.readTime ?? '';
+const tests = article.data.tests ?? [];
+
+const fmtDate = (d: Date) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<BaseLayout title={title} description={article.data.description} image={article.data.image}>
+  <nav class="crumbs">
+    <a href="/">Home</a><span>/</span>
+    <a href="/blog/">Journal</a><span>/</span>
+    {title}
+  </nav>
+  <div class="layout">
+    <article class="article">
+      <h1>{title}</h1>
+      <div class="meta">
+        <span>{date}</span>
+        <span class="dot">·</span>
+        <span>{readTime}</span>
+        <span class="dot">·</span>
+        <span class="cat">{article.data.category}</span>
+      </div>
+      <p class="lede">{article.data.description}</p>
+      {
+        tests.length > 0 && (
+          <div class="test-card">
+            <div class="label">Tests run on this article</div>
+            <div class="tests">
+              {tests.map((t) => <span class="tag">{t}</span>)}
+            </div>
+          </div>
+        )
+      }
+      <figure class="heroimg">
+        <img src={article.data.image} alt={title} />
+      </figure>
+      <div class="rule"></div>
+      {/* Rendered Markdown (was post.render()'s <Content />) */}
+      <Fragment set:html={html} />
+      <AdSlot />
+      <section class="related">
+        <div class="label">Related reading</div>
+        <div class="grid">
+          {
+            related.map((p) => (
+              <a href={`/blog/${p.slug}/`}>
+                <h3>{p.data.title}</h3>
+                <div class="rel-date">{fmtDate(p.data.pubDate)}</div>
+              </a>
+            ))
+          }
+        </div>
+      </section>
+      <a class="back" href="/blog/">← Back to journal</a>
+    </article>
+    <aside class="toc-side">
+      <div class="label">In this guide</div>
+      <ul>
+        {toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}
+      </ul>
+    </aside>
+  </div>
+
+  <div class="progress-bar" id="progressBar"></div>
+  <a class="back-to-top" id="toTop" href="#top" aria-label="Back to top">↑</a>
+  <script is:inline>
+    (function () {
+      var bar = document.getElementById('progressBar');
+      var top = document.getElementById('toTop');
+      if (!bar || !top) return;
+      function onScroll() {
+        var h = document.documentElement;
+        var sc = h.scrollTop || document.body.scrollTop;
+        var max = h.scrollHeight - h.clientHeight;
+        bar.style.width = (max > 0 ? (sc / max) * 100 : 0) + '%';
+        if (sc > 400) top.classList.add('visible');
+        else top.classList.remove('visible');
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+      top.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+</BaseLayout>

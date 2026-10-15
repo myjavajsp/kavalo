@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Admin — kavalo">
+  <section class="page admin-home">
+    <h1>Admin</h1>
+    <p class="lede">Manage the kavalo journal from here.</p>
+    <div class="admin-actions">
+      <a class="admin-btn" href="/admin/posts">Manage articles →</a>
+      <button class="admin-btn ghost" id="logoutBtn" type="button">Log out</button>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .admin-actions { display: flex; gap: 14px; margin-top: 28px; flex-wrap: wrap; }
+</style>
+
+<script>
+  const btn = document.getElementById('logoutBtn') as HTMLButtonElement | null;
+  btn?.addEventListener('click', async () => {
+    await fetch('/api/logout', { method: 'POST' });
+    window.location.href = '/admin/login';
+  });
+</script>
