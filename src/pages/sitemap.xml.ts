@@ -29,6 +29,7 @@ export async function GET(context: APIContext) {
     '/how-we-test/',
     '/affiliate-disclosure/',
     '/privacy-policy/',
+    '/returns-and-refunds/',
     ...CATEGORIES.map((c) => `/blog/category/${c.slug}/`),
   ];
 
