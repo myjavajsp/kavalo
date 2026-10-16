@@ -31,3 +31,5 @@ Contact the retailer's customer service directly. Most retailers offer a replace
 For questions about our content, testing, or this site, contact us via the [Contact page](/contact).
 
 *Disclosure: kavalo may earn a commission from qualifying purchases through the retailer links on this site — see our [Affiliate Disclosure](/affiliate-disclosure). The return and refund information above describes the affiliate model and points you to the retailer that actually sells the product; it does not constitute legal or tax advice.*
+
+*Last reviewed: October 2026.*
