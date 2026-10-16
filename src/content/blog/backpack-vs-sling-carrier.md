@@ -1,11 +1,18 @@
 ---
-title: "Backpack vs Sling Carrier for Small Dogs: Which Is Safer?"
-pubDate: "2026-08-12"
-category: "backpack carrier"
-image: "/images/blog/backpack-vs-sling-carrier.jpg"
-description: "We wore both for a week of errands. The backpack wins on security, the sling wins on snugness —but only one passed the escape test."
-readTime: "3 min read"
-tests: ["Fold & durability test", "Escape test"]
+title: 'Backpack vs Sling Carrier for Small Dogs: Which Is Safer?'
+pubDate: '2026-08-12'
+category: backpack carrier
+image: /images/blog/backpack-vs-sling-carrier.jpg
+description: >-
+  We wore both for a week of errands. The backpack wins on security, the sling
+  wins on snugness —but only one passed the escape test.
+readTime: 3 min read
+tests:
+  - Fold & durability test
+  - Escape test
+ai_assisted: true
+ai_provider: WorkBuddy (agnes-2.0-flash)
+affiliate: true
 ---
 
 Peanut has now traveled in both a backpack carrier and a sling carrier, and we kept both —because they’re for different jobs. But if you’re only buying one, the safety difference matters more than the comfort difference.

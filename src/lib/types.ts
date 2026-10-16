@@ -18,6 +18,9 @@ export interface ArticleInput {
   tests: string[];
   pubDate: Date;
   published: boolean;
+  aiAssisted?: boolean;
+  aiProvider?: string | null;
+  affiliate?: boolean;
 }
 
 /** A fully-hydrated article as stored in / read from the database. */
@@ -33,6 +36,9 @@ export interface ArticleData {
   tests: string[];
   pubDate: Date;
   published: boolean;
+  aiAssisted: boolean;
+  aiProvider: string | null;
+  affiliate: boolean;
   createdAt: Date;
   updatedAt: Date;
 }

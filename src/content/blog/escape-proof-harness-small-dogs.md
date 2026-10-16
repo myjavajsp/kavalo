@@ -1,11 +1,18 @@
 ---
-title: "Best Escape-Proof Harness for Small Dogs — Tested"
-pubDate: "2026-08-14"
-category: "harness"
-image: "/images/blog/escape-proof-harness-small-dogs.jpg"
-description: "We put five escape-prone small dogs through our escape test. Here's which harnesses held up and which ones failed in under 30 seconds."
-readTime: "4 min read"
-tests: ["Pull-force test", "Escape test"]
+title: Best Escape-Proof Harness for Small Dogs — Tested
+pubDate: '2026-08-14'
+category: harness
+image: /images/blog/escape-proof-harness-small-dogs.jpg
+description: >-
+  We put five escape-prone small dogs through our escape test. Here's which
+  harnesses held up and which ones failed in under 30 seconds.
+readTime: 4 min read
+tests:
+  - Pull-force test
+  - Escape test
+ai_assisted: true
+ai_provider: WorkBuddy (agnes-2.0-flash)
+affiliate: true
 ---
 
 We have a 5 lb chihuahua mix who can escape from a paper bag. She backs out of harnesses, slips out of collars, and has figured out how to unlatch simple buckles. After months of testing, we’ve learned which harness designs actually hold a determined small dog — and which ones fail in under 30 seconds.

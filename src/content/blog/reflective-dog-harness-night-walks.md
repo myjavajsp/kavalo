@@ -1,11 +1,19 @@
 ---
-title: "PHOEPET No Pull Dog Harness for Night Walks — Real Visibility Test"
-pubDate: "2026-08-17"
-category: "harness"
-image: "/images/blog/reflective-dog-harness-night-walks.jpg"
-description: "We tested five reflective harnesses in pitch darkness at 50, 100, and 200 feet. Here's which one actually makes your small dog visible to drivers — and which one is just marketing."
-readTime: "5 min read"
-tests: ["Pull-force test", "Escape test"]
+title: PHOEPET No Pull Dog Harness for Night Walks — Real Visibility Test
+pubDate: '2026-08-17'
+category: harness
+image: /images/blog/reflective-dog-harness-night-walks.jpg
+description: >-
+  We tested five reflective harnesses in pitch darkness at 50, 100, and 200
+  feet. Here's which one actually makes your small dog visible to drivers — and
+  which one is just marketing.
+readTime: 5 min read
+tests:
+  - Pull-force test
+  - Escape test
+ai_assisted: true
+ai_provider: WorkBuddy (agnes-2.0-flash)
+affiliate: true
 ---
 
 It gets dark at 7:30 PM in August where we live, and Peanut still wants to walk at 7:45. That means walking in near-total darkness on streets with no sidewalk, no streetlights, and cars that don’t slow down for small dogs. So we tested five reflective harnesses to find out which ones actually make an 8 lb corgi visible at the distances that matter.

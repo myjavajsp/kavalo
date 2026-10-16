@@ -1,11 +1,17 @@
 ---
-title: "Best Portable Dog Water Bottle That Doesn't Leak"
-pubDate: "2026-08-12"
-category: "water bottle"
-image: "/images/blog/best-portable-dog-water-bottle.jpg"
-description: "We carried six dog water bottles in backpacks, pockets, and cup holders for two weeks. Only two survived without soaking a single bag. Here's which ones."
-readTime: "3 min read"
-tests: ["Leak test"]
+title: Best Portable Dog Water Bottle That Doesn't Leak
+pubDate: '2026-08-12'
+category: water bottle
+image: /images/blog/best-portable-dog-water-bottle.jpg
+description: >-
+  We carried six dog water bottles in backpacks, pockets, and cup holders for
+  two weeks. Only two survived without soaking a single bag. Here's which ones.
+readTime: 3 min read
+tests:
+  - Leak test
+ai_assisted: true
+ai_provider: WorkBuddy (agnes-2.0-flash)
+affiliate: true
 ---
 
 A dog water bottle is a simple thing, but most of them leak. We stuffed six bottles into backpacks, jeans pockets, and car cup holders for two weeks to find which survive everyday abuse.

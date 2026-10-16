@@ -1,11 +1,17 @@
 ---
-title: "How to Get a Small Dog to Drink on Hot Walks"
-pubDate: "2026-08-12"
-category: "water bottle"
-image: "/images/blog/get-dog-to-drink-on-hot-walks.jpg"
-description: "Small dogs overheat faster than you think —and most won't drink on command. The three triggers that actually work, tested over a hot summer."
-readTime: "3 min read"
-tests: ["Leak test"]
+title: How to Get a Small Dog to Drink on Hot Walks
+pubDate: '2026-08-12'
+category: water bottle
+image: /images/blog/get-dog-to-drink-on-hot-walks.jpg
+description: >-
+  Small dogs overheat faster than you think —and most won't drink on command.
+  The three triggers that actually work, tested over a hot summer.
+readTime: 3 min read
+tests:
+  - Leak test
+ai_assisted: true
+ai_provider: WorkBuddy (agnes-2.0-flash)
+affiliate: true
 ---
 
 On a hot day, a small dog is closer to heat stroke than you are. They have more surface area per pound of body weight, a smaller body mass to absorb heat, and they can’t shed heat through sweat. But here’s the problem: most dogs won’t drink when you want them to, and forcing a bowl of water in front of a panting dog does nothing.

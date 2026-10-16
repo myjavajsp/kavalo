@@ -172,10 +172,39 @@ async function testDb(): Promise<void> {
 }
 
 // ---------------------------------------------------------------------------
+// 4. R1 pre-publish gate — frontmatter flags + title sanity (no CJK leakage)
+// ---------------------------------------------------------------------------
+async function testR1Frontmatter(): Promise<void> {
+  console.log('\n[4] R1 frontmatter flags (pre-publish gate)');
+  const matter = (await import('gray-matter')).default;
+  const fs = await import('node:fs');
+  const path = await import('node:path');
+  const dir = path.resolve('src/content/blog');
+  const files = fs.readdirSync(dir).filter((f) => f.toLowerCase().endsWith('.md'));
+  // CJK + fullwidth ranges: an English site's titles must never carry these.
+  const cjk = /[一-鿿　-〿＀-￯]/;
+
+  for (const file of files) {
+    const raw = fs.readFileSync(path.join(dir, file), 'utf8');
+    const { data } = matter(raw);
+    const ai = data.ai_assisted;
+    const aff = data.affiliate;
+    const title = typeof data.title === 'string' ? data.title : '';
+    const issues: string[] = [];
+    if (typeof ai !== 'boolean') issues.push('ai_assisted missing/non-boolean');
+    if (typeof aff !== 'boolean') issues.push('affiliate missing/non-boolean');
+    if (title.trim().length === 0) issues.push('empty title');
+    if (cjk.test(title)) issues.push('title contains CJK chars');
+    check(`r1 ${file}`, issues.length === 0, issues.join('; '));
+  }
+}
+
+// ---------------------------------------------------------------------------
 async function run(): Promise<void> {
   await testMarkdown();
   await testAuth();
   await testDb();
+  await testR1Frontmatter();
 
   console.log('\n========================================');
   console.log(`QA CHECK SUMMARY  PASS=${pass}  FAIL=${fail}`);

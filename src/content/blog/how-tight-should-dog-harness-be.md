@@ -1,11 +1,19 @@
 ---
-title: "How Tight Should a Dog Harness Be? 2-Finger Rule"
-pubDate: "2026-08-12"
-category: "harness"
-image: "/images/blog/how-tight-should-dog-harness-be.jpg"
-description: "We measured a dozen harnesses on three small dogs and found the 2-finger rule gets repeated wrong more often than right. Here's the exact procedure we use and the mistakes we see most."
-readTime: "5 min read"
-tests: ["Pull-force test", "Escape test"]
+title: How Tight Should a Dog Harness Be? 2-Finger Rule
+pubDate: '2026-08-12'
+category: harness
+image: /images/blog/how-tight-should-dog-harness-be.jpg
+description: >-
+  We measured a dozen harnesses on three small dogs and found the 2-finger rule
+  gets repeated wrong more often than right. Here's the exact procedure we use
+  and the mistakes we see most.
+readTime: 5 min read
+tests:
+  - Pull-force test
+  - Escape test
+ai_assisted: true
+ai_provider: WorkBuddy (agnes-2.0-flash)
+affiliate: true
 ---
 
 We fit harnesses for a living, and the “2-finger rule” gets mangled more than any other piece of sizing advice. It’s not that the rule is wrong —it’s that most people apply it to the wrong strap, on the wrong dog, and never re-check. We put a dozen harnesses through our fitting routine on three dogs of very different body types to pin down what actually works.

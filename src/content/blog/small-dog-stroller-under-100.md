@@ -1,11 +1,18 @@
 ---
-title: "Small Dog Stroller Under $100 That's Actually Good"
-pubDate: "2026-08-16"
-category: "stroller"
-image: "/images/blog/small-dog-stroller-under-100.jpg"
-description: "We bought five strollers under $100 and put them through the same tests as our premium models. Here's what survives and what falls apart in 30 days."
-readTime: "8 min read"
-tests: ["Vibration test", "Fold & durability test"]
+title: Small Dog Stroller Under $100 That's Actually Good
+pubDate: '2026-08-16'
+category: stroller
+image: /images/blog/small-dog-stroller-under-100.jpg
+description: >-
+  We bought five strollers under $100 and put them through the same tests as our
+  premium models. Here's what survives and what falls apart in 30 days.
+readTime: 8 min read
+tests:
+  - Vibration test
+  - Fold & durability test
+ai_assisted: true
+ai_provider: WorkBuddy (agnes-2.0-flash)
+affiliate: true
 ---
 
 We bought five dog strollers under $100 and ran them through the same tests we use for our premium picks: fold durability, brake hold on a slope, vibration on cobblestones, and Peanut’s actual comfort over a 30-minute walk. The results weren’t what we expected. The cheapest stroller wasn’t the worst, and the most expensive sub-$100 model was the safest one we tested — but none of them matched our mid-range pick from last month.

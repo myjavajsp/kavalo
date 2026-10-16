@@ -1,11 +1,16 @@
 ---
-title: "The Best Airline-Approved Dog Carriers for In-Cabin Travel — 2026"
-pubDate: "2026-08-17"
-category: "carrier"
-image: "/images/blog/airline-approved-small-dog-carriers.jpg"
-description: "We measured seven soft-sided carriers against three airline under-seat templates. Here's which ones actually fit and which one trips at the gate."
-readTime: "9 min read"
+title: The Best Airline-Approved Dog Carriers for In-Cabin Travel — 2026
+pubDate: '2026-08-17'
+category: carrier
+image: /images/blog/airline-approved-small-dog-carriers.jpg
+description: >-
+  We measured seven soft-sided carriers against three airline under-seat
+  templates. Here's which ones actually fit and which one trips at the gate.
+readTime: 9 min read
 tests: []
+ai_assisted: true
+ai_provider: WorkBuddy (agnes-2.0-flash)
+affiliate: true
 ---
 
 The carrier has to fit under the seat, or your dog doesn’t fly. Almost every mistake people make buying a flight carrier is a fit mistake — the carrier fits the dog but not the seat, or it fits one airline’s seat but not the airline they actually booked. The gate agent finds out for you at the worst possible moment.

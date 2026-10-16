@@ -22,6 +22,9 @@ export interface ArticleRow extends mysql.RowDataPacket {
   tests: string | null;
   pub_date: Date;
   published: number;
+  ai_assisted: number;
+  ai_provider: string | null;
+  affiliate: number;
   created_at: Date;
   updated_at: Date;
 }

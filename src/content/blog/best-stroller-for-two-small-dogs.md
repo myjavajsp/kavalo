@@ -1,11 +1,19 @@
 ---
-title: "Best Strollers for Two Small Dogs — Tested on Peanut and a Friend"
-pubDate: "2026-08-17"
-category: "stroller"
-image: "/images/blog/best-stroller-for-two-small-dogs.jpg"
-description: "We measured ten dual-compartment and wide-body strollers against Peanut (8 lb corgi) and a 6 lb chihuahua friend. Here's which ones actually fit two dogs and which ones tip over."
-readTime: "8 min read"
-tests: ["Vibration test", "Fold & durability test"]
+title: Best Strollers for Two Small Dogs — Tested on Peanut and a Friend
+pubDate: '2026-08-17'
+category: stroller
+image: /images/blog/best-stroller-for-two-small-dogs.jpg
+description: >-
+  We measured ten dual-compartment and wide-body strollers against Peanut (8 lb
+  corgi) and a 6 lb chihuahua friend. Here's which ones actually fit two dogs
+  and which ones tip over.
+readTime: 8 min read
+tests:
+  - Vibration test
+  - Fold & durability test
+ai_assisted: true
+ai_provider: WorkBuddy (agnes-2.0-flash)
+affiliate: true
 ---
 
 Two small dogs in one stroller sounds practical until you try it. Most “double” strollers are really just narrow compartments stacked side by side — each one too small for a dog to turn around in, and together they create a top-heavy platform that wobbles on anything but perfect pavement.

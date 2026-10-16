@@ -1,11 +1,18 @@
 ---
-title: "Best Lightweight Dog Stroller That Folds One-Handed"
-pubDate: "2026-08-12"
-category: "stroller"
-image: "/images/blog/best-lightweight-dog-stroller.jpg"
-description: "We folded, unfolded, and pushed five lightweight dog strollers around the city. Which one actually folds one-handed —and keeps working after a month."
-readTime: "3 min read"
-tests: ["Vibration test", "Fold & durability test"]
+title: Best Lightweight Dog Stroller That Folds One-Handed
+pubDate: '2026-08-12'
+category: stroller
+image: /images/blog/best-lightweight-dog-stroller.jpg
+description: >-
+  We folded, unfolded, and pushed five lightweight dog strollers around the
+  city. Which one actually folds one-handed —and keeps working after a month.
+readTime: 3 min read
+tests:
+  - Vibration test
+  - Fold & durability test
+ai_assisted: true
+ai_provider: WorkBuddy (agnes-2.0-flash)
+affiliate: true
 ---
 
 We live in a walk-up with no elevator, so a dog stroller that doesn’t fold one-handed simply won’t get used. We pushed five lightweight strollers through a month of market trips, bus rides, and vet visits to find which fold is real.

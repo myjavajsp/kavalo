@@ -149,6 +149,10 @@ export function articleGraph(siteUrl: string, article: ArticleEntry, pageUrl: st
     mainEntityOfPage: { '@id': pageUrl },
     articleSection: d.category,
     inLanguage: 'en',
+    // §7.4 隐式标识扩展字段：AI 辅助状态 / 服务方 / 内容 id（标准 JSON-LD 无原生字段，用 kavalo: 前缀扩展）。
+    'kavalo:aiAssisted': d.aiAssisted ?? false,
+    ...(d.aiProvider ? { 'kavalo:aiProvider': d.aiProvider } : {}),
+    'kavalo:contentId': d.slug,
   });
 
   graph.push({

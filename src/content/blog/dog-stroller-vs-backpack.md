@@ -1,11 +1,18 @@
 ---
-title: "Dog Stroller vs Backpack for City Trips: Which Do You Need?"
-pubDate: "2026-08-12"
-category: "stroller"
-image: "/images/blog/dog-stroller-vs-backpack.jpg"
-description: "Same corgi, same city, two different ways to move him. Here's the honest break-even point —and why you might not need both."
-readTime: "3 min read"
-tests: ["Vibration test", "Fold & durability test"]
+title: 'Dog Stroller vs Backpack for City Trips: Which Do You Need?'
+pubDate: '2026-08-12'
+category: stroller
+image: /images/blog/dog-stroller-vs-backpack.jpg
+description: >-
+  Same corgi, same city, two different ways to move him. Here's the honest
+  break-even point —and why you might not need both.
+readTime: 3 min read
+tests:
+  - Vibration test
+  - Fold & durability test
+ai_assisted: true
+ai_provider: WorkBuddy (agnes-2.0-flash)
+affiliate: true
 ---
 
 We own both a dog stroller and a backpack carrier, and we were surprised by how little they actually overlap. After a month of using each in the same city, the right choice came down to four questions —not to which one is “better.”

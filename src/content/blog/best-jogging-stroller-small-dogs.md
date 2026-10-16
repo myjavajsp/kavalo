@@ -1,11 +1,19 @@
 ---
-title: "Best Jogging Stroller for Small Dogs — Tested"
-pubDate: "2026-08-15"
-category: "stroller"
-image: "/images/blog/best-jogging-stroller-small-dogs.jpg"
-description: "We pushed five jogging strollers with an 8 lb corgi over cobblestones, gravel, and pavement. Here's which one survived the bump test and which one fell apart."
-readTime: "5 min read"
-tests: ["Vibration test", "Fold & durability test"]
+title: Best Jogging Stroller for Small Dogs — Tested
+pubDate: '2026-08-15'
+category: stroller
+image: /images/blog/best-jogging-stroller-small-dogs.jpg
+description: >-
+  We pushed five jogging strollers with an 8 lb corgi over cobblestones, gravel,
+  and pavement. Here's which one survived the bump test and which one fell
+  apart.
+readTime: 5 min read
+tests:
+  - Vibration test
+  - Fold & durability test
+ai_assisted: true
+ai_provider: WorkBuddy (agnes-2.0-flash)
+affiliate: true
 ---
 
 Jogging with a small dog seems straightforward — push a stroller, run alongside, repeat — until you hit a cobblestone street, a gravel path, or a crack in the sidewalk. That’s when cheap strollers become dangerous. Our 8 lb corgi Peanut felt every bump, and after three weeks of testing five jogging strollers, we learned which ones protect small spines and which ones just look the part.

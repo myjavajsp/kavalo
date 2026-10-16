@@ -1,11 +1,19 @@
 ---
-title: "Best Small Dog Backpack Carriers — Tested on an 8 lb Corgi"
-pubDate: "2026-08-11"
-category: "backpack carrier"
-image: "/images/blog/best-small-dog-backpack-carriers.jpg"
-description: "We carried our corgi around a week of errands in four of the most popular small-dog backpacks. Fit, escape risk, back comfort — here's what actually held up."
-readTime: "3 min read"
-tests: ["Fold & durability test", "Escape test"]
+title: Best Small Dog Backpack Carriers — Tested on an 8 lb Corgi
+pubDate: '2026-08-11'
+category: backpack carrier
+image: /images/blog/best-small-dog-backpack-carriers.jpg
+description: >-
+  We carried our corgi around a week of errands in four of the most popular
+  small-dog backpacks. Fit, escape risk, back comfort — here's what actually
+  held up.
+readTime: 3 min read
+tests:
+  - Fold & durability test
+  - Escape test
+ai_assisted: true
+ai_provider: WorkBuddy (agnes-2.0-flash)
+affiliate: true
 ---
 
 We tested this on Peanut, an 8 lb corgi who is opinionated about transportation. Four backpacks, one week of errands (market, vet, bus, two long walks). Here is what we learned.

@@ -1,11 +1,19 @@
 ---
-title: "Is a Dog Stroller Cruel? What We Learned After a Month"
-pubDate: "2026-08-12"
-category: "stroller"
-image: "/images/blog/is-a-dog-stroller-cruel.jpg"
-description: "The 'spoiled dog' accusation meets reality. We used a stroller daily for a month and asked our vet —here's when it's a kindness and when it genuinely is a problem."
-readTime: "3 min read"
-tests: ["Vibration test", "Fold & durability test"]
+title: Is a Dog Stroller Cruel? What We Learned After a Month
+pubDate: '2026-08-12'
+category: stroller
+image: /images/blog/is-a-dog-stroller-cruel.jpg
+description: >-
+  The 'spoiled dog' accusation meets reality. We used a stroller daily for a
+  month and asked our vet —here's when it's a kindness and when it genuinely is
+  a problem.
+readTime: 3 min read
+tests:
+  - Vibration test
+  - Fold & durability test
+ai_assisted: true
+ai_provider: WorkBuddy (agnes-2.0-flash)
+affiliate: true
 ---
 
 “Isn’t a stroller spoiling the dog?” is the first thing people say when they see Peanut in his. We heard it enough that we decided to actually look at the question instead of getting defensive. A month of daily stroller use and a conversation with our vet later, here’s the honest answer.

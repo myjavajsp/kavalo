@@ -1,9 +1,30 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 const { frontmatter } = Astro.props;
+const aiAssisted = frontmatter?.ai_assisted === true;
+const aiProvider = typeof frontmatter?.ai_provider === 'string' ? frontmatter.ai_provider : '';
+const affiliate = frontmatter?.affiliate === true;
 ---
-<BaseLayout title={frontmatter.title} description={frontmatter.description}>
+<BaseLayout
+  title={frontmatter.title}
+  description={frontmatter.description}
+  aiAssisted={aiAssisted}
+  aiProvider={aiProvider}
+  affiliate={affiliate}
+>
   <div class="page">
     <slot />
+    {aiAssisted && (
+      <aside class="callout">
+        <p><strong>AI writing assistance:</strong> This page was produced with AI writing assistance for writing and drafting. All product tests, measurements, and buying conclusions are performed and verified by the kavalo team.</p>
+      </aside>
+    )}
+    {affiliate && (
+      <aside class="callout">
+        <p><strong>Affiliate disclosure:</strong> Some links on this page are affiliate links. If you click one and buy, kavalo may earn a commission at no extra cost to you.</p>
+        <p>As an Amazon Associate, kavalo earns from qualifying purchases.</p>
+        <p><a href="/affiliate-disclosure">Read our full affiliate disclosure →</a></p>
+      </aside>
+    )}
   </div>
 </BaseLayout>

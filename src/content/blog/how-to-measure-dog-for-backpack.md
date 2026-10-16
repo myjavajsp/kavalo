@@ -1,11 +1,18 @@
 ---
-title: "How to Measure a Dog for a Carrier Backpack (Size Chart)"
-pubDate: "2026-08-12"
-category: "backpack carrier"
-image: "/images/blog/how-to-measure-dog-for-backpack.jpg"
-description: "The size chart on the box lies. Here's the two-minute measuring routine we use, with the back-length numbers that actually decide your carrier size."
-readTime: "3 min read"
-tests: ["Fold & durability test", "Escape test"]
+title: How to Measure a Dog for a Carrier Backpack (Size Chart)
+pubDate: '2026-08-12'
+category: backpack carrier
+image: /images/blog/how-to-measure-dog-for-backpack.jpg
+description: >-
+  The size chart on the box lies. Here's the two-minute measuring routine we
+  use, with the back-length numbers that actually decide your carrier size.
+readTime: 3 min read
+tests:
+  - Fold & durability test
+  - Escape test
+ai_assisted: true
+ai_provider: WorkBuddy (agnes-2.0-flash)
+affiliate: true
 ---
 
 The fastest way to buy the wrong dog backpack is to trust the weight column on the box. Two dogs can both weigh 8 lb and need completely different carrier sizes —one long-backed and one stocky. The number that actually decides it is back length.

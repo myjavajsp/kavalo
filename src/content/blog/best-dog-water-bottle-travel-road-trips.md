@@ -1,11 +1,18 @@
 ---
-title: "Best Dog Water Bottle for Travel and Road Trips — Tested"
-pubDate: "2026-08-17"
-category: "water bottle"
-image: "/images/blog/best-dog-water-bottle-travel-road-trips.jpg"
-description: "We carried five dog water bottles on a 400-mile road trip with Peanut. Which ones survived bumpy roads, car temperature swings, and an 8 lb corgi who refuses to drink on command?"
-readTime: "6 min read"
-tests: ["Leak test"]
+title: Best Dog Water Bottle for Travel and Road Trips — Tested
+pubDate: '2026-08-17'
+category: water bottle
+image: /images/blog/best-dog-water-bottle-travel-road-trips.jpg
+description: >-
+  We carried five dog water bottles on a 400-mile road trip with Peanut. Which
+  ones survived bumpy roads, car temperature swings, and an 8 lb corgi who
+  refuses to drink on command?
+readTime: 6 min read
+tests:
+  - Leak test
+ai_assisted: true
+ai_provider: WorkBuddy (agnes-2.0-flash)
+affiliate: true
 ---
 
 A 400-mile road trip with an 8 lb corgi who won’t drink on command is a hydration challenge. Peanut gets anxious in the car, and anxiety suppresses thirst. By mile 200, he’s dehydrated even though he’s been “drinking” — just not enough. We took five popular dog water bottles on a round trip from Singapore to the north and back, testing leak resistance, ease of use in a moving car, and whether Peanut would actually drink from each one.

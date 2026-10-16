@@ -1,11 +1,18 @@
 ---
-title: "Best Breathable Mesh Harness for Hot Summers — Tested on an 8 lb Corgi"
-pubDate: "2026-08-17"
-category: "harness"
-image: "/images/blog/best-breathable-mesh-harness-hot-summers.jpg"
-description: "We put five mesh harnesses on Peanut during a 95°F week. Which ones kept him cool and which ones made him overheat? Here's the infrared data."
-readTime: "5 min read"
-tests: ["Pull-force test", "Escape test"]
+title: Best Breathable Mesh Harness for Hot Summers — Tested on an 8 lb Corgi
+pubDate: '2026-08-17'
+category: harness
+image: /images/blog/best-breathable-mesh-harness-hot-summers.jpg
+description: >-
+  We put five mesh harnesses on Peanut during a 95°F week. Which ones kept him
+  cool and which ones made him overheat? Here's the infrared data.
+readTime: 5 min read
+tests:
+  - Pull-force test
+  - Escape test
+ai_assisted: true
+ai_provider: WorkBuddy (agnes-2.0-flash)
+affiliate: true
 ---
 
 Corgis double-coat. Peanut has a dense undercoat that traps heat and a weather-resistant outer coat that sheds water but not air. When temperatures hit 90°F+, a standard nylon harness feels like wearing a winter jacket in July. We tested five mesh harnesses during a heat wave to find which ones actually keep a corgi cool — and which ones just look breathable.

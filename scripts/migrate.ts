@@ -36,6 +36,30 @@ async function main(): Promise<void> {
       await conn.query(stmt);
       console.log(`✓ ${stmt.slice(0, 70).replace(/\s+/g, ' ')}`);
     }
+
+    // Idempotent R1 upgrade: add AI-label columns to the existing `articles`
+    // table only if they are missing (production DB predates these columns).
+    const aiColumns = [
+      { name: 'ai_assisted', def: 'TINYINT(1) NOT NULL DEFAULT 0' },
+      { name: 'ai_provider', def: 'VARCHAR(128) DEFAULT NULL' },
+      { name: 'affiliate', def: 'TINYINT(1) NOT NULL DEFAULT 0' },
+    ];
+    for (const col of aiColumns) {
+      const [rows] = await conn.query<mysql.RowDataPacket[]>(
+        `SELECT COLUMN_NAME FROM information_schema.COLUMNS
+         WHERE TABLE_SCHEMA = 'kavalo' AND TABLE_NAME = 'articles' AND COLUMN_NAME = ?`,
+        [col.name],
+      );
+      if (rows.length === 0) {
+        await conn.query(
+          `ALTER TABLE kavalo.articles ADD COLUMN ${col.name} ${col.def}`,
+        );
+        console.log(`✓ added column articles.${col.name}`);
+      } else {
+        console.log(`• column articles.${col.name} already present`);
+      }
+    }
+
     console.log(`\nApplied ${statements.length} statement(s).`);
   } finally {
     conn.release();

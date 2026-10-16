@@ -20,6 +20,9 @@ const date = article.data.pubDate.toLocaleDateString('en-US', {
 const title = article.data.title;
 const readTime = article.data.readTime ?? '';
 const tests = article.data.tests ?? [];
+const aiAssisted = article.data.aiAssisted ?? false;
+const aiProvider = article.data.aiProvider ?? '';
+const affiliate = article.data.affiliate ?? false;
 
 const fmtDate = (d: Date) =>
   d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
@@ -33,6 +36,10 @@ const jsonLd = articleGraph(Astro.site?.toString() ?? 'https://kavalo.top', arti
   description={article.data.description}
   image={article.data.image}
   jsonLd={jsonLd}
+  aiAssisted={aiAssisted}
+  aiProvider={aiProvider}
+  affiliate={affiliate}
+  contentId={article.slug}
 >
   <nav class="crumbs">
     <a href="/">Home</a><span>/</span>
@@ -63,6 +70,9 @@ const jsonLd = articleGraph(Astro.site?.toString() ?? 'https://kavalo.top', arti
       <figure class="heroimg">
         <img src={article.data.image} alt={title} />
       </figure>
+      {affiliate && (
+        <p class="affiliate-note">Some links in this article are affiliate links. <a href="/affiliate-disclosure">Full disclosure →</a></p>
+      )}
       <div class="rule"></div>
       {/* Rendered Markdown (was post.render()'s <Content />) */}
       <Fragment set:html={html} />
@@ -80,6 +90,18 @@ const jsonLd = articleGraph(Astro.site?.toString() ?? 'https://kavalo.top', arti
           }
         </div>
       </section>
+      {aiAssisted && (
+        <aside class="callout">
+          <p><strong>AI writing assistance:</strong> This article was produced with AI writing assistance for writing and drafting. All product tests, measurements, and buying conclusions are performed and verified by the kavalo team.</p>
+        </aside>
+      )}
+      {affiliate && (
+        <aside class="callout">
+          <p><strong>Affiliate disclosure:</strong> Some links on this page are affiliate links. If you click one and buy, kavalo may earn a commission at no extra cost to you.</p>
+          <p>As an Amazon Associate, kavalo earns from qualifying purchases.</p>
+          <p><a href="/affiliate-disclosure">Read our full affiliate disclosure →</a></p>
+        </aside>
+      )}
       <a class="back" href="/blog/">← Back to journal</a>
     </article>
     <aside class="toc-side">
@@ -114,3 +136,19 @@ const jsonLd = articleGraph(Astro.site?.toString() ?? 'https://kavalo.top', arti
     })();
   </script>
 </BaseLayout>
+
+<style>
+  .affiliate-note {
+    margin: 0 0 12px;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    color: #555;
+    background: #fff8e6;
+    border-left: 3px solid #e6b800;
+    border-radius: 4px;
+  }
+  .affiliate-note a {
+    color: #9a6b00;
+    font-weight: 600;
+  }
+</style>

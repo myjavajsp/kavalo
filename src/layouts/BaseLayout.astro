@@ -9,12 +9,20 @@ interface Props {
   description?: string;
   image?: string;
   jsonLd?: unknown;
+  aiAssisted?: boolean;
+  aiProvider?: string;
+  affiliate?: boolean;
+  contentId?: string;
 }
 const {
   title = SITE.title,
   description = SITE.description,
   image = '/images/og-default.webp',
   jsonLd,
+  aiAssisted = false,
+  aiProvider = '',
+  affiliate = false,
+  contentId,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
@@ -38,6 +46,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
+    {/* §7.4 隐式标识：仅当 AI 辅助为 true 时输出 meta 信号（缺省 false，保守不误标） */}
+    {aiAssisted === true && <meta name="ai-assisted" content="true" />}
     <link rel="preconnect" href="https://stats.kavalo.top" crossorigin />
     <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
     <script

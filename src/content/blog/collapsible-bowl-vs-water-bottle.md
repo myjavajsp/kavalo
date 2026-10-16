@@ -1,11 +1,17 @@
 ---
-title: "Collapsible Bowl vs Dog Water Bottle: Which Should You Carry?"
-pubDate: "2026-08-12"
-category: "water bottle"
-image: "/images/blog/collapsible-bowl-vs-water-bottle.jpg"
-description: "We did a month of walks with a collapsible bowl in one pocket and a water bottle in the other. One got used every day. One got used once."
-readTime: "3 min read"
-tests: ["Leak test"]
+title: 'Collapsible Bowl vs Dog Water Bottle: Which Should You Carry?'
+pubDate: '2026-08-12'
+category: water bottle
+image: /images/blog/collapsible-bowl-vs-water-bottle.jpg
+description: >-
+  We did a month of walks with a collapsible bowl in one pocket and a water
+  bottle in the other. One got used every day. One got used once.
+readTime: 3 min read
+tests:
+  - Leak test
+ai_assisted: true
+ai_provider: WorkBuddy (agnes-2.0-flash)
+affiliate: true
 ---
 
 Every “what to carry for your dog” list mentions a collapsible bowl, and for a month we carried both one of those and a dog water bottle on every walk. The results were one-sided enough that we stopped carrying the bowl.

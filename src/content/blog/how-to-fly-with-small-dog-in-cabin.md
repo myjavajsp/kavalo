@@ -1,11 +1,17 @@
 ---
-title: "How to Fly with a Small Dog in Cabin (Step by Step)"
-pubDate: "2026-08-14"
-category: "carrier"
-image: "/images/blog/how-to-fly-with-small-dog.jpg"
-description: "We flew with our 8 lb corgi in the cabin and broke the process into a checklist: carrier sizing, booking, security, and gate rules. What actually worked and what got us stopped."
-readTime: "6 min read"
+title: How to Fly with a Small Dog in Cabin (Step by Step)
+pubDate: '2026-08-14'
+category: carrier
+image: /images/blog/how-to-fly-with-small-dog.jpg
+description: >-
+  We flew with our 8 lb corgi in the cabin and broke the process into a
+  checklist: carrier sizing, booking, security, and gate rules. What actually
+  worked and what got us stopped.
+readTime: 6 min read
 tests: []
+ai_assisted: true
+ai_provider: WorkBuddy (agnes-2.0-flash)
+affiliate: true
 ---
 
 Flying with a small dog in the cabin sounds simple — book a seat, bring a carrier, walk on. Then the gate agent pulled out a tape measure, and our ‘one-and-done’ trip nearly fell apart before takeoff. We flew with our 8 lb corgi Peanut (13 in back length, and a puller on leash) and learned the process is a checklist, not a vibe. Here’s the exact order that worked for us, so your first flight doesn’t end at the gate.

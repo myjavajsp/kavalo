@@ -1,11 +1,18 @@
 ---
-title: "Small Dog Stroller Buying Guide — Specs"
-pubDate: "2026-08-16"
-category: "stroller"
-image: "/images/blog/small-dog-stroller-buying-guide.jpg"
-description: "Weight limit, wheel size, fold mechanism, ventilation — we broke down every spec on 8 strollers and ranked what matters for small dogs."
-readTime: "5 min read"
-tests: ["Vibration test", "Fold & durability test"]
+title: Small Dog Stroller Buying Guide — Specs
+pubDate: '2026-08-16'
+category: stroller
+image: /images/blog/small-dog-stroller-buying-guide.jpg
+description: >-
+  Weight limit, wheel size, fold mechanism, ventilation — we broke down every
+  spec on 8 strollers and ranked what matters for small dogs.
+readTime: 5 min read
+tests:
+  - Vibration test
+  - Fold & durability test
+ai_assisted: true
+ai_provider: WorkBuddy (agnes-2.0-flash)
+affiliate: true
 ---
 
 We tested eight small dog strollers over six weeks, ranging from $60 budget models to $400 premium options. The price difference wasn’t always about features — it was about which specs matter and which are marketing noise. Here’s what we learned.

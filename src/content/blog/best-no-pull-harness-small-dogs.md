@@ -1,11 +1,18 @@
 ---
-title: "Best No-Pull Harness for Small Dogs — Tested 5"
-pubDate: "2026-08-12"
-category: "harness"
-image: "/images/blog/best-no-pull-harness-small-dogs.jpg"
-description: "We strapped our pulling corgi into five no-pull harnesses and measured which ones stopped the pulling without choking. Real test, real numbers."
-readTime: "3 min read"
-tests: ["Pull-force test", "Escape test"]
+title: Best No-Pull Harness for Small Dogs — Tested 5
+pubDate: '2026-08-12'
+category: harness
+image: /images/blog/best-no-pull-harness-small-dogs.jpg
+description: >-
+  We strapped our pulling corgi into five no-pull harnesses and measured which
+  ones stopped the pulling without choking. Real test, real numbers.
+readTime: 3 min read
+tests:
+  - Pull-force test
+  - Escape test
+ai_assisted: true
+ai_provider: WorkBuddy (agnes-2.0-flash)
+affiliate: true
 ---
 
 Peanut is a puller. An 8 lb corgi with the ambition of a sled dog, so no-pull harnesses get a real workout in this house. We tested five popular models for three weeks and measured the pulling force with a luggage scale clipped to the leash.
@@ -24,7 +31,7 @@ Every harness was worn for the same morning walk route: past the neighbor’s ca
 | Martingale-style | 7.4 lb | Medium | No |
 | Chest-only strap | 12.1 lb | Medium | No |
 
-The front-clip harness won by a mile. Attaching the leash at the chest turns the pull into a turn — every time he lunged, the harness steered him back toward me instead of letting him drag forward.
+[观点] The front-clip harness won by a mile. Attaching the leash at the chest turns the pull into a turn — every time he lunged, the harness steered him back toward me instead of letting him drag forward.
 
 ## Why front-clip beats back-clip for pullers
 

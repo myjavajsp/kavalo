@@ -1,11 +1,16 @@
 ---
-title: "Small Dog Sizing Guide — One Chart for All Gear"
-pubDate: "2026-08-10"
-category: "sizing guide"
-image: "/images/blog/small-dog-gear-sizing-guide.jpg"
-description: "How to measure chest, neck, and back length on a small dog, plus the size chart we use for harnesses, backpacks, and strollers."
-readTime: "2 min read"
+title: Small Dog Sizing Guide — One Chart for All Gear
+pubDate: '2026-08-10'
+category: sizing guide
+image: /images/blog/small-dog-gear-sizing-guide.jpg
+description: >-
+  How to measure chest, neck, and back length on a small dog, plus the size
+  chart we use for harnesses, backpacks, and strollers.
+readTime: 2 min read
 tests: []
+ai_assisted: true
+ai_provider: WorkBuddy (agnes-2.0-flash)
+affiliate: true
 ---
 
 Sizing small-dog gear wrong is how you end up with a harness that slips off in the parking lot. This is the measurement routine we use for every product on this site.

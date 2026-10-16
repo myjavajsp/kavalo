@@ -81,6 +81,9 @@ function rowToEntry(row: ArticleRow): ArticleEntry {
     tests: parseTests(row.tests),
     pubDate: row.pub_date,
     published: row.published === 1,
+    aiAssisted: row.ai_assisted === 1,
+    aiProvider: row.ai_provider ?? null,
+    affiliate: row.affiliate === 1,
     createdAt: row.created_at,
     updatedAt: row.updated_at,
   };
@@ -110,6 +113,9 @@ function dataToInput(data: ArticleData): ArticleInput {
     tests: data.tests,
     pubDate: data.pubDate,
     published: data.published,
+    aiAssisted: data.aiAssisted,
+    aiProvider: data.aiProvider,
+    affiliate: data.affiliate,
   };
 }
 
@@ -134,6 +140,9 @@ const COLUMNS = [
   'tests',
   'pub_date',
   'published',
+  'ai_assisted',
+  'ai_provider',
+  'affiliate',
 ] as const;
 
 /** Bind values for an `ArticleInput`. */
@@ -149,6 +158,9 @@ function bindValues(input: ArticleInput): unknown[] {
     JSON.stringify(input.tests ?? []),
     toSqlDate(input.pubDate),
     input.published ? 1 : 0,
+    input.aiAssisted ? 1 : 0,
+    input.aiProvider ?? null,
+    input.affiliate ? 1 : 0,
   ];
 }
 
@@ -302,6 +314,9 @@ export async function upsertFromMarkdown(md: MarkdownSource): Promise<void> {
   const tests = Array.isArray(md.data.tests) ? (md.data.tests as unknown[]) : [];
   const pubDate = toSqlDate(md.data.pubDate);
   const published = md.data.published === undefined ? 1 : toBool(md.data.published) ? 1 : 0;
+  const aiAssisted = md.data.ai_assisted === undefined ? 0 : toBool(md.data.ai_assisted) ? 1 : 0;
+  const aiProvider = md.data.ai_provider ? String(md.data.ai_provider) : null;
+  const affiliate = md.data.affiliate === undefined ? 0 : toBool(md.data.affiliate) ? 1 : 0;
 
   const colList = COLUMNS.join(', ');
   const placeholders = COLUMNS.map(() => '?').join(', ');
@@ -321,6 +336,9 @@ export async function upsertFromMarkdown(md: MarkdownSource): Promise<void> {
       JSON.stringify(tests),
       pubDate,
       published,
+      aiAssisted,
+      aiProvider,
+      affiliate,
     ],
   );
 }

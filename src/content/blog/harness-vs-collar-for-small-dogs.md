@@ -1,11 +1,19 @@
 ---
-title: "Harness vs Collar for Small Dogs: What We Measure Before We Answer"
-pubDate: "2026-08-12"
-category: "harness"
-image: "/images/blog/harness-vs-collar-for-small-dogs.jpg"
-description: "Instead of repeating 'harnesses are safer,' we measured the actual force difference at the neck between a collar and a harness on a 8 lb dog. Here's what the numbers said, and when we'd still reach for a collar."
-readTime: "4 min read"
-tests: ["Pull-force test", "Escape test"]
+title: 'Harness vs Collar for Small Dogs: What We Measure Before We Answer'
+pubDate: '2026-08-12'
+category: harness
+image: /images/blog/harness-vs-collar-for-small-dogs.jpg
+description: >-
+  Instead of repeating 'harnesses are safer,' we measured the actual force
+  difference at the neck between a collar and a harness on a 8 lb dog. Here's
+  what the numbers said, and when we'd still reach for a collar.
+readTime: 4 min read
+tests:
+  - Pull-force test
+  - Escape test
+ai_assisted: true
+ai_provider: WorkBuddy (agnes-2.0-flash)
+affiliate: true
 ---
 
 Every article on this topic opens with “vets recommend harnesses,” and it’s true —but it skips the *why*, which is a measurement thing, not a vibe thing. So we measured it. On a 8 lb dog, we clipped a luggage scale to the leash and had a handler tug at three force levels —once on a collar, once on a harness —and logged where the pull actually registered.

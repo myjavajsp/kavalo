@@ -1,11 +1,19 @@
 ---
-title: "Y vs H Harness for Small Dogs — Tested"
-pubDate: "2026-08-13"
-category: "harness"
-image: "/images/blog/y-harness-vs-h-harness-small-dogs.jpg"
-description: "We put both harness shapes on three small dogs and measured where pressure goes, how much they slip, and which one your dog will tolerate. Here's what the numbers said."
-readTime: "6 min read"
-tests: ["Pull-force test", "Escape test"]
+title: Y vs H Harness for Small Dogs — Tested
+pubDate: '2026-08-13'
+category: harness
+image: /images/blog/y-harness-vs-h-harness-small-dogs.jpg
+description: >-
+  We put both harness shapes on three small dogs and measured where pressure
+  goes, how much they slip, and which one your dog will tolerate. Here's what
+  the numbers said.
+readTime: 6 min read
+tests:
+  - Pull-force test
+  - Escape test
+ai_assisted: true
+ai_provider: WorkBuddy (agnes-2.0-flash)
+affiliate: true
 ---
 
 Every harness starts as a shape. The two most common are the **Y-harness** and the **H-harness**, named after how the straps arrange on the dog’s chest. They look similar at a glance, but they behave differently once your dog starts walking — and for small dogs, that difference matters more than you’d think.

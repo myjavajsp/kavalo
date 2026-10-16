@@ -1,11 +1,17 @@
 ---
-title: "How to Get a Small Dog to Drink on Hot Walks — Tested"
-pubDate: "2026-08-17"
-category: "water bottle"
-image: "/images/blog/how-to-get-small-dog-to-drink-hot-walks.jpg"
-description: "Our corgi refused to drink from three popular travel bottles. Here's what actually worked, and the hydration test we used to find out."
-readTime: "5 min read"
-tests: ["Leak test"]
+title: How to Get a Small Dog to Drink on Hot Walks — Tested
+pubDate: '2026-08-17'
+category: water bottle
+image: /images/blog/how-to-get-small-dog-to-drink-hot-walks.jpg
+description: >-
+  Our corgi refused to drink from three popular travel bottles. Here's what
+  actually worked, and the hydration test we used to find out.
+readTime: 5 min read
+tests:
+  - Leak test
+ai_assisted: true
+ai_provider: WorkBuddy (agnes-2.0-flash)
+affiliate: true
 ---
 
 Peanut won’t drink from most travel bottles. We’ve tried six models over two summers, and he consistently turns away from the narrow spout, licks the side, or just walks off. After watching him get progressively slower on warm walks — panting harder, sitting down more often — we realized hydration was a problem we needed to solve.
