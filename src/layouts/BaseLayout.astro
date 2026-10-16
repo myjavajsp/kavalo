@@ -8,11 +8,13 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
+  jsonLd?: unknown;
 }
 const {
   title = SITE.title,
   description = SITE.description,
   image = '/images/og-default.webp',
+  jsonLd,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
@@ -44,6 +46,13 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
       src="https://stats.kavalo.top/script.js"
       data-website-id="9369a92f-aff3-4ef1-a645-0d38faf3e1ae"
     ></script>
+    {jsonLd !== undefined && (
+      <script
+        is:inline
+        type="application/ld+json"
+        set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')}
+      />
+    )}
   </head>
   <body>
     <Header />

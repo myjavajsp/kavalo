@@ -4,14 +4,16 @@ import PostCard from '../components/PostCard.astro';
 import CategoryList from '../components/CategoryList.astro';
 import { HERO, STORY, TRUST } from '../site';
 import { listAll } from '../lib/articles';
+import { homeGraph } from '../lib/schema';
 
 const posts = (await listAll(false)).sort(
   (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
 );
-const latest = posts.slice(0, 9);
+const latest = posts.slice(0, 8);
+const jsonLd = homeGraph(Astro.site?.toString() ?? 'https://kavalo.top');
 ---
 
-<BaseLayout>
+<BaseLayout jsonLd={jsonLd}>
   <section class="hero">
     <div class="text">
       <h1>{HERO.title}</h1>

@@ -7,7 +7,31 @@ export const SITE = {
   email: 'hello@kavalo.top',
 };
 
+// Organization entity for JSON-LD (GEO). @id is stable site-wide so author /
+// publisher references resolve to one consolidated entity.
+export const ORG = {
+  name: 'kavalo',
+  url: 'https://kavalo.top',
+  logo: 'https://kavalo.top/logo.svg',
+  email: SITE.email,
+  description: SITE.description,
+  // 【待补充】外部一致实体：法定名 / 地址 / 社交主页(sameAs)。AI 引擎很吃这些背书。
+  legalName: '',
+  sameAs: [] as string[],
+};
+
+// 具名作者（E-E-A-T）。name 为空时，文章页 author 回退为 Organization，绝不编造姓名。
+// 填入真实姓名 + 资历 + 社交主页后，文章页 author 自动升级为 Person 实体。
+export const PERSON = {
+  name: '', // 【待填：真实作者姓名】
+  jobTitle: '', // 【待填】
+  description: '', // 【待填：一句话资历/背景】
+  url: '', // 【待填：作者页/About 链接，可空】
+  sameAs: [] as string[],
+};
+
 export const NAV = [
+  { label: 'Home', href: '/' },
   { label: 'Journal', href: '/blog/' },
   { label: 'How we test', href: '/how-we-test/' },
   { label: 'About', href: '/#about' },

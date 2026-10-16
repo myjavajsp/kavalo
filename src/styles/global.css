@@ -111,6 +111,9 @@ body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink);ba
 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 @media(max-width:860px){.grid{grid-template-columns:repeat(2,1fr)}}
 .post{text-decoration:none;color:var(--ink)}
+/* Grid cards (home "Latest from the journal") must be block-level, not inherit
+   the list variant's display:flex from the earlier .post rule above. */
+.grid .post{display:block;padding:0;border:0}
 .post .ph{aspect-ratio:4/3;background:#f2f0ea;overflow:hidden;display:flex;align-items:center;justify-content:center;color:#a8a49a;font-size:12px;letter-spacing:1px;text-transform:uppercase}
 .post .ph img{width:100%;height:100%;object-fit:cover;display:block}
 .post .date{font-size:11px;color:var(--muted);margin-top:12px;text-transform:capitalize}

@@ -1,6 +1,7 @@
 ---
 import { NAV } from '../site';
 const path = Astro.url.pathname;
+const isHome = path === '/';
 const isJournal = path === '/blog/' || path.startsWith('/blog/category/');
 ---
 <header>
@@ -13,7 +14,9 @@ const isJournal = path === '/blog/' || path.startsWith('/blog/category/');
         NAV.map((item) => (
           <a
             href={item.href}
-            class={item.label === 'Journal' && isJournal ? 'on' : undefined}
+            class={item.label === 'Home' && isHome ? 'on'
+              : item.label === 'Journal' && isJournal ? 'on'
+              : undefined}
           >
             {item.label}
           </a>
