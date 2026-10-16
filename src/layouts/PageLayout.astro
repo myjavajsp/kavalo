@@ -4,6 +4,7 @@ const { frontmatter } = Astro.props;
 const aiAssisted = frontmatter?.ai_assisted === true;
 const aiProvider = typeof frontmatter?.ai_provider === 'string' ? frontmatter.ai_provider : '';
 const affiliate = frontmatter?.affiliate === true;
+const contentId = Astro.url.pathname.replace(/^\/+|\/+$/g, '');
 ---
 <BaseLayout
   title={frontmatter.title}
@@ -11,6 +12,7 @@ const affiliate = frontmatter?.affiliate === true;
   aiAssisted={aiAssisted}
   aiProvider={aiProvider}
   affiliate={affiliate}
+  contentId={contentId}
 >
   <div class="page">
     <slot />

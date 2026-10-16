@@ -48,6 +48,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="twitter:image" content={image} />
     {/* §7.4 隐式标识：仅当 AI 辅助为 true 时输出 meta 信号（缺省 false，保守不误标） */}
     {aiAssisted === true && <meta name="ai-assisted" content="true" />}
+    {/* §7.4 隐式标识完整性：服务提供者名称/编码 + 内容编号，与文章页 JSON-LD 扩展一致（安守正 G1-4 可选增强） */}
+    {aiProvider && <meta name="ai-provider" content={aiProvider} />}
+    {aiProvider && contentId && <meta name="ai-content-id" content={contentId} />}
     <link rel="preconnect" href="https://stats.kavalo.top" crossorigin />
     <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
     <script
