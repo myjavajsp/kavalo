@@ -24,6 +24,18 @@ export const onRequest = defineMiddleware(async (context, next) => {
   locals.auth = false;
 
   const path = url.pathname;
+
+  // Permanent 301 redirects for consolidated / renamed articles (SEO hygiene).
+  // When an article is merged into a canonical slug, keep the old slug alive here
+  // so backlinks — and any lingering MySQL row — never 404.
+  const PERMANENT_REDIRECTS: Record<string, string> = {
+    '/blog/get-dog-to-drink-on-hot-walks': '/blog/how-to-get-small-dog-to-drink-hot-walks/',
+  };
+  const redirectTarget = PERMANENT_REDIRECTS[path.replace(/\/+$/, '')];
+  if (redirectTarget) {
+    return context.redirect(redirectTarget, 301);
+  }
+
   const isAdminPage = path.startsWith('/admin') && path !== '/admin/login';
   const isArticlesApi = path.startsWith('/api/articles');
 
